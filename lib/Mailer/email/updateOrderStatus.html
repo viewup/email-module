@@ -1,0 +1,61 @@
+{{##def.status: it.order.currentStep #}} {{##def.content:
+<table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+    <!-- Greeting : BEGIN -->
+    <tbody>
+        <tr>
+            <th class="greeting ">
+                <p><span class="template-editable" data-key="custom_wording_greeting">{{= it.client.name || "cliente" }}</span>,
+                </p>
+            </th>
+        </tr>
+        <!-- Greeting : END -->
+        <tr>
+            <th class="text_block1  full-editable" data-key="text_block1">
+                <p>{{= it.message || ''}} </p>
+                <p>Em caso de dúvida, entre em contato.</p>
+            </th>
+        </tr>
+
+
+        <!-- Horizontal Line : BEGIN -->
+        <tr>
+            <th class="horizontal_line">
+                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <th style="border-top: 2px solid #e3e3e3;">
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- Horizontal Line : END -->
+
+
+        <tr>
+            <td id="hover-marker-4" class="hover-marker-container" style="min-width:100%; ">
+                <div class="hover-marker"></div>
+            </td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+            <th class="text_block3  full-template-editable" data-key="custom_wording_text_block3">
+                <br> Atenciosamente,
+                <br>{{=it.company.name}}
+            </th>
+        </tr>
+
+        <tr>
+            <td id="hover-marker-5" class="hover-marker-container" style="min-width:100%; ">
+                <div class="hover-marker"></div>
+            </td>
+        </tr>
+        <tr>
+
+        </tr>
+    </tbody>
+</table>
+#}} {{#def.include('base.html', {"title": "\{\{=it.title\}\}"})}}

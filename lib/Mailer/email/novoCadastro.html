@@ -1,0 +1,199 @@
+{{##def.content:
+<table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+    <!-- Greeting : BEGIN -->
+    <tbody>
+        <tr>
+            <th class="greeting ">
+                <p><span class="template-editable" data-key="custom_wording_greeting">Prezado usuário</span>,
+                </p>
+            </th>
+        </tr>
+        <!-- Greeting : END -->
+        <tr>
+            <th class="text_block1  full-editable" data-key="text_block1">
+                <p> Uma nova solicitação de cadastro foi realizada. Para aprovar o usuário vá em <a href="{{=it.empresa.url}}aprovacao">"Cadastro &gt; Aprovação de cadastro"</a> escolha o usuário desejado e clique em "Aprovar".</p>
+            </th>
+        </tr>
+
+        <!--DATA: BEGIN-->
+        <tr>
+            <th class="order_number ">
+                <span class="template-editable" data-key="order_number">Informações cadastrais</span>
+            </th>
+        </tr>
+        <tr>
+            <th class="column_pricing_table row">
+                <table class="pricing-table" cellspacing="0" cellpadding="0" border="0" width="100%" style="min-width: 100%;">
+
+                    <tbody>
+                    <tr>
+                        <th class="pricing-table-title template-editable" data-key="name">Tipo de Acesso</th>
+                        <th class="pricing-table-text">{{=it.user.permissao}}</th>
+                    </tr>
+
+                    <tr>
+                        <th class="pricing-table-title template-editable" data-key="name">Tipo de pessoa</th>
+                        <th class="pricing-table-text">{{=it.user.tipo}}</th>
+                    </tr>
+
+                    <tr>
+                        <th class="pricing-table-title template-editable" data-key="name">Nome</th>
+                        <th class="pricing-table-text">{{=it.user.nome}}</th>
+                    </tr>
+
+                    <tr>
+                        <th class="pricing-table-title template-editable" data-key="email">Email</th>
+                        <th class="pricing-table-text"><a href="mailto:{{=it.user.email}}">{{=it.user.email}}</a></th>
+                    </tr>
+
+                    <tr>
+                        <th class="pricing-table-title template-editable">CPF/CNPJ</th>
+                        <th class="pricing-table-text">{{=it.user.registro}}</th>
+                    </tr>
+                    <tr>
+                        <th class="pricing-table-title template-editable">Endereço</th>
+                        <th class="pricing-table-text">{{=it.user.dados_cadastrais.endereco}}, No. {{=it.user.dados_cadastrais.numero}}</th>
+                    </tr>
+
+                    <tr>
+                        <th class="pricing-table-title template-editable">Complemento</th>
+                        <th class="pricing-table-text">{{=it.user.dados_cadastrais.complemento}}</th>
+                    </tr>
+
+                    <tr>
+                        <th class="pricing-table-title template-editable">Bairro</th>
+                        <th class="pricing-table-text">{{=it.user.dados_cadastrais.bairro}}</th>
+                    </tr>
+
+                    <tr>
+                        <th class="pricing-table-title template-editable">Cidade / UF</th>
+                        <th class="pricing-table-text">{{=it.user.dados_cadastrais.cidade}} / {{=it.user.dados_cadastrais.uf}} (COD. {{=it.user.dados_cadastrais.cod_municipio}})</th>
+                    </tr>
+
+                    <tr>
+                        <th class="pricing-table-title template-editable">CEP</th>
+                        <th class="pricing-table-text">{{=it.user.dados_cadastrais.cep}}</th>
+                    </tr>
+
+                    <tr>
+                        <th class="pricing-table-title template-editable">Telefones</th>
+                        <th class="pricing-table-text">
+                            {{~it.user.telefones :tel}}
+                            <a href="tel:{{=tel}}">{{=tel}}</a><br>
+                            {{~}}
+                        </th>
+                    </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        {{?it.user.referencias}}
+        <!-- Horizontal Line : BEGIN -->
+        <tr>
+            <th class="horizontal_line">
+                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tbody>
+                    <tr>
+                        <th style="border-top: 2px solid #e3e3e3;">
+                        </th>
+                    </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- Horizontal Line : END -->
+        <tr>
+            <th class="order_number ">
+                <span class="template-editable" data-key="order_number">Referências</span>
+            </th>
+        </tr>
+        <tr>
+            <th class="column_pricing_table row">
+                <table class="pricing-table" cellspacing="0" cellpadding="0" border="0" width="100%" style="min-width: 100%;">
+                    <tbody>
+                    {{~it.user.dados_cadastrais.referencias :ref}}
+                    <tr>
+                        <th class="pricing-table-title template-editable">{{=ref.nome}}</th>
+                        <th class="pricing-table-text">
+                            <a href="mailto:{{=ref.email}}">{{=ref.email}}</a><br>
+                            <a href="mailto:{{=ref.telefone}}">{{=ref.telefone}}</a>
+                        </th>
+                    </tr>
+                    {{~}}
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        {{?}}
+        <!--DATA: END-->
+        <!-- Button : BEGIN -->
+        <!-- Button3 : BEGIN -->
+        <tr>
+            <th class="sides column_button">
+                <table cellspacing="0" cellpadding="0" border="0" align="center" class="button" style="background-color: #ffffff">
+                    <tbody>
+                        <tr>
+                            <th style="border-radius: 30px; background: {{=it.theme.buttonColor}}; text-align: center;">
+                                <a class="button-link" href="{{=it.empresa.url}}aprovacao" style="background: {{=it.theme.buttonColor}}; border: 15px solid {{=it.theme.buttonColor}}; padding: 1px 20px 0 20px;color: #ffffff; line-height: 1; text-align: center; text-decoration: none; display: block; border-radius: 30px;"
+                                    target="_blank">
+                                    <span style="text-decoration:none;text-underline:none; text-underline:none; "><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--><span class="editable" data-key="text_on_button">Aprovação de cadastro</span>
+                                    <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->
+                                    </span>
+                                </a>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- Button3 : END -->
+        <tr>
+            <th height="22">
+            </th>
+        </tr>
+
+        <!-- Button : END -->
+
+
+        <!-- Horizontal Line : BEGIN -->
+        <tr>
+            <th class="horizontal_line">
+                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <th style="border-top: 2px solid #e3e3e3;">
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- Horizontal Line : END -->
+
+
+        <tr>
+            <td id="hover-marker-4" class="hover-marker-container" style="min-width:100%; ">
+                <div class="hover-marker"></div>
+            </td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+            <th class="text_block3  full-template-editable" data-key="custom_wording_text_block3">
+                <br> Atenciosamente,
+                <br>{{=it.empresa.nome}}
+            </th>
+        </tr>
+
+        <tr>
+            <td id="hover-marker-5" class="hover-marker-container" style="min-width:100%; ">
+                <div class="hover-marker"></div>
+            </td>
+        </tr>
+        <tr>
+
+        </tr>
+    </tbody>
+</table>
+#}} {{#def.include('baseEmail.html', {"title": "Novo Cadastro"})}}

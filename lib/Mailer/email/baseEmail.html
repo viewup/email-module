@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dth">
+<html lang="pt-br">
+
+<head>
+    <!-- Order confirmation email template for Shopify -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="”x-apple-disable-message-reformatting”">
+    <title>{{=it.title || 'Novo email'}}</title>
+    <style type="text/css" data-premailer="ignore">
+        /* What it does: Remove spaces around the email design added by some email clients. */
+        /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+        /* What it does: Stops email clients resizing small text. */
+
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* What it does: Forces Outlook.com to display emails full width. */
+
+        .ExternalClass {
+            width: 100%;
+        }
+        /* What is does: Centers email on Android 4.4 */
+
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+
+        table,
+        th {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        /* What it does: Fixes Outlook.com line height. */
+
+        .ExternalClass,
+        .ExternalClass * {
+            line-height: 100% !important;
+        }
+        /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            Margin: 0 auto;
+        }
+
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+        /* What it does: Overrides styles added when Yahoo's auto-senses a link. */
+
+        .yshortcuts a {
+            border-bottom: none !important;
+        }
+        /* What it does: Overrides blue, underlined link auto-detected by iOS Mail. */
+        /* Create a class for every link style needed; this template needs only one for the link in the footer. */
+
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        .header a {
+            color: #c3c3c3;
+            text-decoration: none;
+            text-underline: none;
+        }
+
+        .main a {
+            color: #26292a;
+            text-decoration: none;
+            text-underline: none;
+        }
+
+        .footer a {
+            color: #f7f7f7;
+            text-decoration: none;
+            text-underline: none;
+        }
+        /* What it does: Overrides styles added images. */
+
+        img {
+            border: 0 !important;
+            outline: none !important;
+            text-decoration: none !important;
+        }
+        /* What it does: Fixes fonts for Google WebFonts; */
+
+        [style*="Lato"] {
+            font-family: 'Lato', Arial, sans-serif !important;
+        }
+
+        [style*="Open Sans"] {
+            font-family: 'Open Sans', Arial, sans-serif !important;
+        }
+
+        [style*="Lato"] {
+            font-family: 'Lato', Arial, sans-serif !important;
+        }
+
+        [style*="Open Sans"] {
+            font-family: 'Open Sans', Arial, sans-serif !important;
+        }
+
+        td.menu_bar_1 a:hover,
+        td.menu_bar_6 a:hover {
+            color: #26292a !important;
+        }
+    </style>
+
+    <!--[if !mso]><!-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400|Lato:700|Lato:700|Open+Sans:400" rel="stylesheet" type="text/css" data-premailer="ignore">
+    <!--<![endif]-->
+
+    <style>
+        {{#def.include('style.css')}}
+    </style>
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#f7f7f7" style="margin:0; padding:0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none;" onload="loadScroll()" onunload="saveScroll()">
+    <!--CONTENT: BEGIN-->
+    <!--CONTENT: BEGIN-->
+    <div style="display:none;font-size:1px;color:#222222;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide: all;">
+        {{=it.description || it.subject || it.title || 'Novo email'}}
+    </div>
+    <!-- Visually Hidden Preheader Text : END -->
+    <!-- BEGIN: CONTAINER -->
+    <table class="container container_full" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse; min-width: 100%">
+        <tbody>
+            <tr>
+                <th valign="top">
+                    <center style="width: 100%;">
+                        <table border="0" width="540" cellpadding="0" cellspacing="0" align="center" style="width:540px; margin: auto; min-width: 540px; max-width: 540px;" class="email-container">
+                            <tbody>
+                                <tr>
+                                    <th valign="top">
+                                        <table id="hover-marker-1" class="hover-marker-container" border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="hover-marker"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- BEGIN : SECTION : HEADER -->
+                                        <table class="section header" border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="section_th">
+                                                        <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th class="column_logo" style="background: {{=it.company.pallet.accentColor}}">
+                                                                        <!-- Logo : BEGIN -->
+                                                                        <a href="{{=it.company.host}}" target="_blank">
+                                                                            {{?it.company.image}}
+                                                                            <img src="{{=it.cdn}}/{{=it.company.image.file_uri}}{{=it.company.image.file_name}}" class="logo " alt="{{=it.company.name}}" width="160" border="0" style="width: 160px; height: auto !important;">
+                                                                            {{?}}
+                                                                        </a>
+                                                                        <!-- Logo : END -->
+                                                                    </th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td id="hover-marker-2" class="hover-marker-container" style="min-width:100%; ">
+                                                                        <div class="hover-marker"></div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="subtitle title  editable" data-key="title">
+                                                                        {{=it.title || 'Novo email'}}
+                                                                    </th>
+                                                                </tr>
+
+
+                                                                <!-- Date : BEGIN -->
+                                                                <tr>
+                                                                    <th class="date">
+                                                                        {{?it.date}} {{=it.date || ''}} {{?}}
+                                                                    </th>
+                                                                </tr>
+                                                                <!-- Date : END -->
+
+
+                                                                <tr>
+                                                                    <td id="hover-marker-3" class="hover-marker-container" style="min-width:100%; ">
+                                                                        <div class="hover-marker"></div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- END : SECTION : HEADER -->
+
+                                        <!-- BEGIN : SECTION : MAIN -->
+                                        <table class="section main" border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="section_th">
+                                                        {{#def.content || ''}}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- END : SECTION : MAIN -->
+
+                                        <table id="hover-marker-6" class="hover-marker-container" border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="hover-marker"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- BEGIN : SECTION : FOOTER -->
+                                        <table class="section footer" border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="section_th">
+                                                        <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <!-- SocialMedia : BEGIN -->
+                                                                    <th class="shop_social_icons ">
+                                                                        {{~it.company.socialMedia :media}}
+                                                                        <a class="social-link" href="{{=media.link}}" target="_blank" title="{{=media.name}}">
+                                                                            <img width="32" class="social-icons" alt="{{=media.name}}" src="{{=it.cdn}}/default/images/email/{{=media.name}}.png">
+                                                                        </a>
+                                                                        {{~}}
+                                                                    </th>
+                                                                    <!-- SocialMedia : END -->
+                                                                </tr>
+                                                                <!-- Store Address1 : BEGIN -->
+                                                                <tr>
+                                                                    <th class="column_shop_block1  full-template-editable" data-key="shop_block1" width="100%">
+                                                                        <b><a href="{{=it.company.host}}" target="_blank">{{=it.domain || it.company.host}}</a></b>
+                                                                    </th>
+                                                                </tr>
+                                                                <!-- Store Address1 : END -->
+                                                                <!-- Store Address2 : BEGIN -->
+                                                                <tr>
+                                                                    <th class="column_shop_block2  full-template-editable" data-key="shop_block2" width="100%">
+                                                                    {{=it.company.name}}<br>
+                                                                    {{?it.company.baseAddress}}
+                                                                        {{=it.company.baseAddress.way || ''}}<br>
+                                                                        {{=it.company.baseAddress.city || ''}}, {{=it.company.baseAddress.province || ''}} - {{=it.company.baseAddress.code || ''}}<br>
+                                                                    {{?}}
+                                                                    <br>
+                                                                    Todos os direitos reservados © {{=it.copyrightDate}}
+                                                                    </th>
+                                                                </tr>
+                                                                <!-- Store Address2 : END -->
+                                                                <tr>
+                                                                    <th class="column_footer_logo" width="50%">
+                                                                        <!-- Footer Logo : BEGIN -->
+                                                                        {{?it.company.logo}}
+                                                                        <img src="{{=it.cdn}}/{{=it.company.logo}}" class="footer_logo " alt="{{=it.company.name}}" width="100" border="0" style="width: 100px; height: auto !important;">                       
+                                                                        {{?}}
+                                                                        <!-- Footer Logo : END -->
+
+                                                                        <!-- Footer Viewup Tool : BEGIN --->
+                                                                        <span style="font-weight: 400;font-size: 9px">
+                                                                            
+                                                                        </span>
+                                                                        <!-- Footer Viewup Tool : END --->
+                                                                    </th>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- END : SECTION : FOOTER -->
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </center>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    <!-- END : CONTAINER -->
+    <!--CONTENT: END-->
+</body>
+
+</html>

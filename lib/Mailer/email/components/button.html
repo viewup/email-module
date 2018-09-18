@@ -1,0 +1,62 @@
+{{?it.link}}
+    <!-- Button : BEGIN -->
+
+    <!-- ButtonDescription : BEGIN -->
+    {{?it.link.description}}
+        <tr>
+            <th class="sides column_text_before_button full-editable" data-key="text_before_button">
+                {{=it.link.description}}
+            </th>
+        </tr>
+    {{?}}
+    <!-- ButtonDescription : END -->
+
+    <!-- Button3 : BEGIN -->
+    {{?it.link.url}}
+        <tr>
+            <th class="sides column_button">
+                <table cellspacing="0" cellpadding="0" border="0" align="center" class="button" style="background-color: #ffffff">
+                    <tbody>
+                        <tr>
+                            <th class="button-link-container">
+                                <a class="button-link" href="{{=it.link.url}}" target="_blank">
+                                    <span>
+                                        <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->
+                                            <span class="editable" data-key="text_on_button">{{=it.link.label || 'Clique aqui'}}</span>
+                                    <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->
+                                    </span>
+                                </a>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+    {{?}}
+    <!-- Button3 : END -->
+    <tr>
+        {{?it.link.note}}
+            <th class="sides column_text_after_button full-editable" data-key="text_after_button">
+                {{=it.link.note || ''}}
+            </th>
+        {{??}}
+            <th height="22"></th>
+        {{?}}
+    </tr>
+
+    <!-- Button : END -->
+    <!-- Horizontal Line : BEGIN -->
+    <tr>
+        <th class="horizontal_line">
+            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tbody>
+                    <tr>
+                        <th style="border-top: 2px solid #e3e3e3;">
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </th>
+    </tr>
+    <!-- Horizontal Line : END -->
+{{?}}

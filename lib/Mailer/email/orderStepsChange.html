@@ -1,0 +1,207 @@
+{{##def.content:
+<table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+    <tbody>
+    {{#def.include('components/greeting-header.html')}}
+    <tr>
+        <th class="text_block1  full-editable" data-key="text_block1">
+            <p>{{=it.message}}</p>
+        </th>
+    </tr>
+
+    {{#def.include('components/horizontal-line.html')}}
+
+    <!-- Order Number : BEGIN -->
+    <tr>
+        <th class="order_number">
+            <span class="template-editable" data-key="order_number">Cod. pedido: </span>
+            {{=it.order.hash}} <br/>
+            {{? it.company.fromMigration == true}}
+            Seq.: {{=it.order.number}}
+            {{?}}
+        </th>
+    </tr>
+    <!-- Order Number : END -->
+
+    <tr>
+        <td>
+            <div>
+                <span class="steps {{=it.order.steps[0].cssClass}}">
+                    <span class="step-text">Ger</span>
+                    <span class="next {{=it.order.steps[0].cssClass}}"></span>
+                </span>
+                <span class="steps {{=it.order.steps[1].cssClass}}">
+                    <span class="step-text">Pag</span>
+                    <span class="next {{=it.order.steps[1].cssClass}}"></span>
+                </span>
+                <span class="steps {{=it.order.steps[2].cssClass}}">
+                    <span class="step-text">Sep</span>
+                    <span class="next {{=it.order.steps[2].cssClass}}"></span>
+                </span>
+                <span class="steps {{=it.order.steps[3].cssClass}}">
+                    <span class="step-text">Tran</span>
+                    <span class="next {{=it.order.steps[3].cssClass}}"></span>
+                </span>
+                <span class="steps {{=it.order.steps[4].cssClass}}">
+                    <span class="step-text">Ent</span>
+                </span>
+            </div>
+        </td>
+    </tr>
+    <!-- BEGIN : 2 COLUMNS : BILL_TO -->
+    <tr>
+        <th>
+            <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+                <tbody>
+                <tr>
+                    <!-- BEGIN : Column 1 of 2 : BILL_TO -->
+                    <th width="50%" class="column_1_of_2 column_bill_to ">
+                        <table align="center" border="0" width="100%" cellpadding="0" cellspacing="0"
+                               style="min-width:100%">
+                            <tbody>
+                            <tr>
+                                <th class="subtitle bill_to  template-editable" data-key="bill_to">
+                                    Informações de Cobrança
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="subtitle bill_to  template-editable" data-key="bill_to">
+                                    Cliente
+                                </th>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                                <th class="billing_address">
+                                    {{? !it.isShowcase}}
+                                    {{? it.isCompany }}
+                                    {{?it.order.client._type == 'person'}} CPF: {{??}} CNPJ:{{?}}
+                                    {{=it.order.client.code}}<br/>
+                                    {{?}}
+                                    {{=it.order.client.name}}<br>
+                                    {{? it.order.client.billingAddress && it.order.client.billingAddress.address}}
+                                    <strong>Endereço / Logradouro</strong> <br/>
+                                    {{=it.order.client.billingAddress.address.way}},
+                                    {{=it.order.client.billingAddress.number}}
+                                    {{=it.order.client.billingAddress.complements}}<br>
+                                    {{=it.order.client.billingAddress.reference || ''}}<br/>
+                                    <strong>Bairro / Distrito</strong> <br/>
+                                    {{=it.order.client.billingAddress.address.neighborhood}}<br/>
+                                    <strong>Cidade / Localidade</strong> <br/>
+                                    {{=it.order.client.billingAddress.address.city}},
+                                    {{=it.order.client.billingAddress.address.province}}, Brasil
+                                    <br>
+                                    <strong>CEP:</strong><br/> {{=it.order.client.billingAddress.address.code || ''}}<br>
+                                    {{?}}
+                                    <br/>
+                                    {{?it.order.client.fone}}
+                                    <strong class="template-editable" data-key="tel">Telefone:</strong>
+                                    <br/>
+                                    <span style="color: inherit !important; text-decoration:none !important;">{{=it.order.client.fone}}</span><br>
+                                    {{?}}
+                                    {{??}}
+                                    {{=it.order.client.name}}<br />
+                                    {{=it.order.client.email}}<br />
+                                    {{?}}
+                                </th>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+                    </th>
+                    <!-- END : Column 1 of 2 : BILL_TO -->
+
+                    <!-- BEGIN : Column 2 of 2 : SHIP_TO -->
+                    {{? !it.isShowcase}}
+                    <th width="50%" class="column_2_of_2 column_ship_to ">
+                        <table align="center" border="0" width="100%" cellpadding="0" cellspacing="0"
+                               style="min-width:100%">
+                            <tbody>
+                            <tr>
+                                <th class="subtitle ship_to  template-editable" data-key="ship_to">
+                                    Informações de Envio
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="subtitle ship_to  template-editable" data-key="ship_to">
+                                    Destinatário
+                                </th>
+                            </tr>
+                            <tr></tr>
+                            <tr>
+                                <th class="shipping_address ">
+                                    {{=it.order.client.name}} <br>
+                                    <strong>Endereço / Logradouro</strong> <br/>
+                                    {{=it.order.shipping.checkoutAddress.address.way}},
+                                    {{=it.order.shipping.checkoutAddress.number}}
+                                    {{=it.order.shipping.checkoutAddress.complements}}<br>
+                                    {{=it.order.shipping.checkoutAddress.reference || ''}}<br>
+                                    <strong>Bairro / Distrito</strong><br/>
+                                    {{=it.order.shipping.checkoutAddress.address.neighborhood}}<br>
+                                    <strong>Cidade / Localidade</strong><br/>
+                                    {{=it.order.shipping.checkoutAddress.address.city}},
+                                    {{=it.order.shipping.checkoutAddress.address.province}}, Brasil<br>
+                                    <strong>CEP:</strong><br/>
+                                    {{=it.order.shipping.checkoutAddress.postalCode}}
+                                    <br/>
+                                    <strong>Frete:</strong>
+                                    <br/>
+                                    <span style="color: inherit !important; text-decoration:none !important;">{{=it.order.shipping.deliveryOption.deliveryType}}</span><br>
+
+                                </th>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                    {{?}}
+                    <!-- END : Column 2 of 2 : SHIP_TO -->
+                </tr>
+                </tbody>
+            </table>
+        </th>
+    </tr>
+    <!-- END : 2 COLUMNS : SHIP_TO -->
+
+    <!-- Order gift: BEGIN -->
+    {{? it.order.shipping.gift}}
+    <tr>
+        <th class="subtitle order_notes  template-editable" data-key="order_notes">
+            Embrulhar como presente
+        </th>
+    </tr>
+    {{?}}
+    <!-- Order gift END -->
+
+    <!-- Order notes : BEGIN -->
+    <tr>
+        <th class="subtitle order_notes  template-editable" data-key="order_notes">
+            Observações do pedido
+        </th>
+    </tr>
+    <tr></tr>
+    <tr>
+        <th class="notes ">
+            <p>
+                {{=it.order.shipping.notes}}
+            </p>
+            {{?it.order.client.message}}
+            <p>
+                {{=it.order.client.message}}
+            </p>
+            {{?}}
+        </th>
+    </tr>
+    <!-- Order notes : END -->
+
+
+    {{#def.include('components/horizontal-line.html')}}
+
+
+    {{#def.include('components/button.html')}}
+
+
+    {{#def.include('components/greeting-footer.html')}}
+
+    </tbody>
+</table>
+#}} {{#def.include('baseEmail.html')}}

@@ -1,0 +1,87 @@
+{{##def.content:
+<table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+    <tbody>
+    {{#def.include('components/greeting-header.html')}}
+    <tr>
+        <th class="text_block1  full-editable" data-key="text_block1">
+            <p>{{=it.message}}</p>
+        </th>
+    </tr>
+
+    {{#def.include('components/horizontal-line.html')}}
+
+
+
+    <!-- Products with Pricing: BEGIN -->
+    <tr>
+        <th class="column_products_with_pricing row">
+            <table class="products-table" cellspacing="0" cellpadding="0" border="0" width="100%" style="min-width:100%">
+                <tbody>
+                <!-- BETS List: BEGIN -->
+                {{~it.bets :bet}}
+                <tr class="row-border-bottom"> 
+                    <th class="product-table-stack stack-column">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%" style="min-width:100%; margin-bottom: 30px">
+                            <tbody>
+                                <tr>
+                                    <th colspan="2" class="center">
+                                        Aposta {{=bet.ref}}
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th  class="left" rowspan="2">
+                                    Usuário
+                                    </th>
+                                    <th class="right">{{=bet.user.name}}</th>
+                                </tr>
+                                <tr>
+                                    <th class="right"> {{=bet.user.phone}}</th>
+                                </tr>
+                                <tr>
+                                    <th class="left" rowspan="2">
+                                    Escolha 1:
+                                    </th>
+                                    <th class="right">{{=bet.odd.title}}</th>
+                                </tr>
+                                <tr>
+                                    <th class="right">Multiplicador de {{=bet.odd.multiplier}}</th>
+                                </tr> 
+                                {{~bet.extraOdds :extraOdd:index}}
+                                <tr>
+                                    <th class="left" rowspan="2">
+                                        Escolha {{= index + 2}}:
+                                    </th>
+                                    <th class="right">{{=extraOdd.title}} ({{=extraOdd.value}})</th>
+                                </tr>
+                                <tr >
+                                    <th class="right">Multiplicador de {{=extraOdd.multiplier}}</th>
+                                </tr> 
+                                {{~}}
+                                <tr>
+                                    <th class="left">
+                                        Valor apostado
+                                    </th>
+                                    <th class="right"> {{=bet.value}}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </th>
+                </tr>
+                {{~}}
+                <!-- BETS List: END -->
+                </tbody>
+            </table>
+        </th>
+    </tr>
+
+    {{#def.include('components/horizontal-line.html')}}
+
+
+    {{#def.include('components/button.html')}}
+
+
+    {{#def.include('components/greeting-footer.html')}}
+
+    </tbody>
+</table>
+#}} {{#def.include('baseEmail.html')}}

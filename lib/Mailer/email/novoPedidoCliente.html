@@ -1,0 +1,349 @@
+{{##def.content:
+<table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+    <!-- Greeting : BEGIN -->
+    <tbody>
+        <tr>
+            <th class="greeting ">
+                <p><span class="template-editable" data-key="custom_wording_greeting">Prezado {{=it.cliente.nome}},</span>,
+                </p>
+            </th>
+        </tr>
+        <!-- Greeting : END -->
+        <tr>
+            <th class="text_block1  full-editable" data-key="text_block1">
+                <p>Seu pedido foi enviado com sucesso, acompanhe o <i>status</i> na sua conta do Pedidos UP. </p>
+            </th>
+        </tr>
+        <!-- Horizontal Line : BEGIN -->
+        <tr>
+            <th class="horizontal_line">
+                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <th style="border-top: 2px solid #e3e3e3;">
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- Horizontal Line : END -->
+        <!-- Order Number : BEGIN -->
+        <tr>
+            <th class="order_number ">
+                <span class="template-editable" data-key="order_number">Cod. pedido: </span> {{=it.pedido.cod_pedido}}
+            </th>
+        </tr>
+        <!-- Order Number : END -->
+
+
+
+        <!-- Products with Pricing: BEGIN -->
+        <tr>
+            <th class="subtitle item sides editable" data-key="item">
+                Produtos
+            </th>
+        </tr>
+        <tr>
+            <th class="column_products_with_pricing row">
+                <table class="products-table" cellspacing="0" cellpadding="0" border="0" width="100%" style="min-width:100%">
+
+                    <tbody>
+                        <!-- Product List: BEGIN -->
+                        {{~it.pedido.produtos :produto}}
+                        <tr class="row-border-bottom">
+                            <th class="product-table-stack product-image-wrapper stack-column-center" width="1">
+                                <img width="100" class="product-image" src="{{=it.empresa.url}}/img/{{=produto.imagem || 'semImagem.png'}}" alt="{{=produto.cod_produto}}">
+                            </th>
+                            <th class="product-table-stack stack-column">
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%" style="min-width:100%">
+                                    <tbody>
+                                        <tr>
+                                            <th class="line-item-description">
+                                                <a href="{{=it.empresa.url}}" target="_blank">
+                                                    {{=produto.nome}}
+                                                </a> {{~produto.propriedades :propriedade}}
+                                                <br><span class="line-item-muted">
+                                                    {{=propriedade.nome}}: {{=propriedade.valor}}
+                                                </span> {{~}}
+                                            </th>
+                                            <th>
+                                            </th>
+
+                                            <th class="right line-item-qty" width="1">×&nbsp;{{=produto.quantidade}}
+                                            </th>
+                                            <th class="right line-item-line-price">
+                                                R${{=produto.preco}}
+                                            </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+                        </tr>
+                        {{~}}
+                        <!-- Product List: END -->
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- Products with Pricing: END -->
+        <!-- Pricing: BEGIN -->
+        <tr>
+            <th class="column_pricing_table row">
+                <table class="pricing-table" cellspacing="0" cellpadding="0" border="0" width="100%" style="min-width: 100%;">
+
+                    <tbody>
+                        <tr>
+                            <th class="pricing-table-title template-editable" data-key="subtotal">Subtotal</th>
+                            <th class="pricing-table-text">R${{=it.pedido.subtotal}}</th>
+                        </tr>
+
+                        <tr>
+                            <th class="pricing-table-title template-editable" data-key="total_tax">Desconto</th>
+                            <th class="pricing-table-text">
+                                {{=it.pedido.desconto}}%</th>
+                        </tr>
+
+                        <tr class="pricing-table-total-row">
+                            <th class="pricing-table-title template-editable" data-key="total">Total</th>
+                            <th class="pricing-table-text">R${{=it.pedido.total}}</th>
+                        </tr>
+                        
+                        <tr class="pricing-table-total-row">
+                            <th class="pricing-table-title template-editable" data-key="total">Condição de pagamento</th>
+                             
+                            <th class="pricing-table-text">
+                                {{?it.pedido.forma_pagamento}}
+                                    {{=it.pedido.forma_pagamento.label}}
+                                {{??}}
+                                    - 
+                                {{?}}
+                            </th>
+                        </tr>
+                        
+
+
+
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- Pricing: END -->
+
+
+        <!-- Payment Info : BEGIN -->
+        <tr>
+            <th class="subtitle payment_info sides template-editable" data-key="payment_info">
+                Informações
+            </th>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+            <th class="column_payment_table row">
+                <table class="payment-table" cellspacing="0" cellpadding="0" border="0" width="100%" style="min-width:100%;display:none;">
+                    <!-- PAYMENT INFO -->
+                    <!-- PAYMENT METHOD IMAGE -->
+                    <tbody>
+                        <tr>
+                            <th>
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%" style="min-width:100%">
+                                    <tbody>
+                                        <tr>
+                                            <th class="payment-table-title" width="32" style="display: none">
+                                                <img width="40" style="width: 40px; vertical-align: middle;" alt="Visa Icon" src="https://orderlyemails.com/mobile-receipt-visa.png">
+                                            </th>
+                                            <th class="payment-table-title">
+                                                Visa
+                                                <span class="payment-table-muted"><br>•••• •••• •••• 1234</span>
+                                            </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+                            <th class="payment-table-text">
+                                $149.95<span class="payment-table-muted"><br>&nbsp;</span>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- Payment Info : END -->
+
+
+        <!-- BEGIN : 2 COLUMNS : BILL_TO -->
+        <tr>
+            <th>
+                <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="min-width:100%">
+                    <tbody>
+                        <tr>
+                            <!-- BEGIN : Column 1 of 2 : BILL_TO -->
+                            <th width="50%" class="column_1_of_2 column_bill_to ">
+                                <table align="center" border="0" width="100%" cellpadding="0" cellspacing="0" style="min-width:100%">
+
+                                    <tbody>
+                                        <tr>
+                                            <th class="subtitle bill_to  template-editable" data-key="bill_to">
+                                                Cliente
+                                            </th>
+                                        </tr>
+                                        <tr>
+
+                                        </tr>
+                                        <tr>
+                                            <th class="billing_address ">
+                                                {{=it.pedido.cliente.nome}} <br> {{=it.pedido.cliente.registro}}<br> {{=it.pedido.data}}
+                                                <br>
+                                            </th>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </th>
+                            <!-- END : Column 1 of 2 : BILL_TO -->
+
+                            <!-- BEGIN : Column 2 of 2 : SHIP_TO -->
+                            <th width="50%" class="column_2_of_2 column_ship_to ">
+                                <table align="center" border="0" width="100%" cellpadding="0" cellspacing="0" style="min-width:100%">
+
+                                    <tbody>
+                                        <tr>
+                                            <th class="subtitle ship_to  template-editable" data-key="ship_to">
+                                                Representante
+                                            </th>
+                                        </tr>
+                                        <tr>
+
+                                        </tr>
+                                        <tr>
+                                            <th class="shipping_address ">
+                                                {{?it.pedido.representante}} 
+                                                    {{=it.pedido.representante.nome}} <br> 
+                                                    {{=it.pedido.representante.registro}} 
+                                                {{??}} - {{?}}
+                                                <br>
+                                            </th>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </th>
+                            <!-- END : Column 2 of 2 : SHIP_TO -->
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- END : 2 COLUMNS : SHIP_TO -->
+        <tr>
+            <th class="subtitle order_notes  template-editable" data-key="order_notes">
+                Observações
+            </th>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+            <th class="notes ">
+                <p>
+                    {{=it.pedido.observacoes || '-'}}
+                </p>
+
+            </th>
+        </tr>
+        <!-- Horizontal Line : BEGIN -->
+        <tr>
+            <th class="horizontal_line">
+                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <th style="border-top: 2px solid #e3e3e3;">
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- Horizontal Line : END -->
+
+
+        <!-- Button : BEGIN -->
+        <tr>
+            <th class="sides column_text_before_button full-editable" data-key="text_before_button">
+                Você pode visualizar seus pedidos no link abaixo:
+            </th>
+        </tr>
+        <!-- Button3 : BEGIN -->
+        <tr>
+            <th class="sides column_button">
+                <table cellspacing="0" cellpadding="0" border="0" align="center" class="button" style="background-color: #ffffff">
+                    <tbody>
+                        <tr>
+                            <th style="border-radius: 30px; background: {{=it.theme.buttonColor}}; text-align: center;">
+                                <a class="button-link" href="{=it.empresa.url}}" style="background: {{=it.theme.buttonColor}}; border: 15px solid {{=it.theme.buttonColor}}; padding: 1px 20px 0 20px;color: #ffffff; line-height: 1; text-align: center; text-decoration: none; display: block; border-radius: 30px;"
+                                    target="_blank">
+                                    <span style="text-decoration:none;text-underline:none; text-underline:none; "><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--><span class="editable" data-key="text_on_button">Ver pedidos</span>
+                                    <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->
+                                    </span>
+                                </a>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- Button3 : END -->
+        <tr>
+            <th height="22">
+            </th>
+        </tr>
+
+        <!-- Button : END -->
+
+
+        <!-- Horizontal Line : BEGIN -->
+        <tr>
+            <th class="horizontal_line">
+                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <th style="border-top: 2px solid #e3e3e3;">
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </tr>
+        <!-- Horizontal Line : END -->
+
+
+        <tr>
+            <td id="hover-marker-4" class="hover-marker-container" style="min-width:100%; ">
+                <div class="hover-marker"></div>
+            </td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+            <th class="text_block3  full-template-editable" data-key="custom_wording_text_block3">
+                Qualquer dúvida deixe-nos saber.<br>
+                <br> Atenciosamente,
+                <br>{{=it.empresa.nome}}
+            </th>
+        </tr>
+
+        <tr>
+            <td id="hover-marker-5" class="hover-marker-container" style="min-width:100%; ">
+                <div class="hover-marker"></div>
+            </td>
+        </tr>
+        <tr>
+
+        </tr>
+    </tbody>
+</table>
+#}} {{#def.include('baseEmail.html', {"title": "Novo Pedido", "description": "Você fez um novo pedido!"})}}
