@@ -1,3 +1,3 @@
-var sendMail = require('./lib/Mailer/mail.ts');
+var Email = require('./dist/src/Mailer/mail.js');
 
-export default sendMail;
+module.exports= exports = Email;

@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
+    "module": "commonjs",
+    /* Allow javascript files to be compiled. */
+    /* Report errors in .js files. */
+    "outDir": "./dist",
+    /* Redirect output structure to the directory. */
+    "rootDir": "./",
+    "strict": true,
+    /* Enable all strict type-checking options. */
+    "experimentalDecorators": true,
+    /* Enables experimental support for ES7 decorators. */
+    "emitDecoratorMetadata": true,
+    /* Enables experimental support for emitting type metadata for decorators. */
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "lib": [
+      "es2015",
+      "esnext"
+    ],
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "exclude": [
+    "node_modules",
+    ".idea",
+    "src",
+    "test",
+    "Gruntfile.js",
+    "gulpfile.js",
+    "dist",
+    "docs",
+    "packages",
+    "test"
+  ]
+}

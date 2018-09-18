@@ -48,22 +48,7 @@ var moment = require('moment');
 var url = require('url');
 // const Utils = require('./utils');
 var juice = require('juice'); //Compress HTML
-var SMTP_SETTINGS = {
-    "development": {
-        "port": 8888,
-        "host": "localhost",
-    },
-    "production": {
-        "port": 465,
-        "host": "hospedaup.hospedaup.com.br",
-        "secure": true,
-        "auth": {
-            "user": "ecommerce@hospedaup.com.br",
-            "pass": "viewup546com@922"
-        }
-    }
-};
-var smtp = SMTP_SETTINGS[process.env.NODE_ENV];
+var _ = require('lodash');
 var Utils = {
     clone: function (data) { return JSON.parse(JSON.stringify(data)); }
 };
@@ -76,11 +61,15 @@ var Utils = {
  };
  */
 /**
+ * @param {Object} smtp - Configuração de smtp
  * @param {Object} mail - Email no formato acima
  * @param {Function|Object} callback - Função de callback (caso não use Promise)
  * @return {Promise}
  */
-exports.sendMail = function (mail, callback) {
+exports.transporter = _.curry(function (smtp, mail) {
+    return exports.sendMail(smtp, mail);
+});
+exports.sendMail = function (smtp, mail, callback) {
     var tmpSmtp = smtp;
     var bcc = commerceBCC;
     var tmpFrom = mail.from;

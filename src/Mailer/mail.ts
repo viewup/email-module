@@ -11,28 +11,13 @@ const moment = require('moment');
 const url = require('url');
 // const Utils = require('./utils');
 const juice = require('juice'); //Compress HTML
-import * as fs from "fs"; 
+import * as fs from "fs";
+const _ = require('lodash');
 
-const SMTP_SETTINGS = {
-    "development": {
-        "port": 8888,
-        "host": "localhost",
-        
-    },
-    "production": {
-        "port": 465,
-        "host": "hospedaup.hospedaup.com.br",
-        "secure": true,
-        "auth": {
-            "user": "ecommerce@hospedaup.com.br",
-            "pass": "viewup546com@922"
-        }
-    }
-};
-const smtp = SMTP_SETTINGS[process.env.NODE_ENV];
+
 const Utils = {
     clone: (data) => JSON.parse(JSON.stringify(data))
-}
+};
 /*
  mail format{
  from: frommail@viewup.com,
@@ -43,11 +28,16 @@ const Utils = {
  */
 
 /**
+ * @param {Object} smtp - Configuração de smtp
  * @param {Object} mail - Email no formato acima
  * @param {Function|Object} callback - Função de callback (caso não use Promise)
  * @return {Promise}
  */
-export const sendMail = (mail, callback) => {
+
+export  const transporter = _.curry((smtp,mail)=>{
+    return sendMail(smtp,mail);
+}) ;
+export const sendMail = (smtp,mail, callback) => {
     
     let tmpSmtp = smtp;
     let bcc = commerceBCC;
