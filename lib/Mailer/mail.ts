@@ -88,7 +88,7 @@ export const sendMail = (mail, callback) => {
     delete copy.html;
     return trasnport.sendMail(mail)
     
-}
+};
 /**
  *
  * @param smtp

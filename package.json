@@ -12,6 +12,8 @@
   "author": "Breno Oliveira <breno@viewup.com.br>",
   "license": "ISC",
   "dependencies": {
+    "dot": "^1.1.2",
+    "dot-emc": "^0.1.2",
     "fs": "0.0.1-security",
     "juice": "^4.3.2",
     "moment": "^2.22.2",
