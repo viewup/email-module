@@ -15,12 +15,18 @@ import SendMail from 'email-module';
 Metodos disponiveis na versão 1.0.1 ->
 
 sendMail() 
+
+
 Este método espera como primeiro parametro uma configuração smtp para o envio autenticado de emails ex:
 {
     "port": 8888,
     "host": "localhost",
 }
+
+
 O segundo parametro espera que você envie os cabeçalhos do email e O html do template em questão  ex:
+
+
 {
     from: 'breno@viewup.com.br',
     to: 'breno@viewup.com.br',
@@ -32,3 +38,5 @@ O segundo parametro espera que você envie os cabeçalhos do email e O html do t
     html: '<html></html>',
 
 }
+
+
