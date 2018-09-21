@@ -31,8 +31,8 @@ O segundo parametro espera que você envie os cabeçalhos do email e O html do t
 ```javascript
 
 {
-    from: 'breno@viewup.com.br',
-    to: 'breno@viewup.com.br',
+    from: 'exemplo@exemplo.com.br',
+    to: 'exemplo@exemplo.com.br',
     subject: 'subtitulo',
     attatchments:[{  
             filename: 'text3.txt',
