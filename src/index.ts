@@ -1,3 +1,3 @@
-import  Email from  "./mail.js"
+import  Email from  "./Mailer/mail";
 
 export default Email
