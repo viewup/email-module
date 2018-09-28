@@ -1,5 +1,7 @@
-.idea/
+
 node_modules/
 *-lock.json
 .DS_Store
 dist/
+.idea/
+src/*.js
