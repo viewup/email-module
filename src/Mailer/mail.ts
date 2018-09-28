@@ -5,7 +5,7 @@ const mailer = require('nodemailer');
 const Promise = global.Promise;
 const path = require('path');
 const commerceBCC = 'emails@viewup.com.br';
-const Render = require('./render');
+// const Render = require('./render');
 const emailFolder = path.join(__dirname, '..', 'Mailer', 'email');
 const moment = require('moment');
 const url = require('url');
@@ -102,63 +102,63 @@ function verify(smtp) {
  * @return {Promise}
  * Ajuda sobre como proceder com isso tudo que acontece
  */
-export const renderMail = async  (mail: any, file: string, data: any, debug?: Boolean) => {
-    // return new Promise((resolve, reject) => {
-        try{
-        file = (file || '').trim();
-        data = data || {};
-        if (!data.company)
-            console.warn(new Error("company not defined"));
-        data.company = Utils.clone(data.company || {});
-        switch (file.toLowerCase()) {
-            case "simplemail":
-            case "simple":
-                file = "simpleEmail";
-                break;
-            default:
-                file = file.toLowerCase() ? file.toLowerCase() : "simpleEmail";
-                break;
-        }
-        if (file.indexOf('.html') === -1) {
-            file += '.html';
-        }
-        if (typeof data.company.image !== "object") {
-            data.company.image = null;
-        }
-        data.company.baseAddress = null;
-        if (data.company.addresses) {
-            data.company.baseAddress = data.company.addresses.find((a => a.type == 0)) || data.company.addresses[0] || null;
-        }
-        if (!data.company.pallet) {
-            data.company.pallet = {
-                accentColor: "#fff"
-            }
-        }
+// export const renderMail = async  (mail: any, file: string, data: any, debug?: Boolean) => {
+//     // return new Promise((resolve, reject) => {
+//         try{
+//         file = (file || '').trim();
+//         data = data || {};
+//         if (!data.company)
+//             console.warn(new Error("company not defined"));
+//         data.company = Utils.clone(data.company || {});
+//         switch (file.toLowerCase()) {
+//             case "simplemail":
+//             case "simple":
+//                 file = "simpleEmail";
+//                 break;
+//             default:
+//                 file = file.toLowerCase() ? file.toLowerCase() : "simpleEmail";
+//                 break;
+//         }
+//         if (file.indexOf('.html') === -1) {
+//             file += '.html';
+//         }
+//         if (typeof data.company.image !== "object") {
+//             data.company.image = null;
+//         }
+//         data.company.baseAddress = null;
+//         if (data.company.addresses) {
+//             data.company.baseAddress = data.company.addresses.find((a => a.type == 0)) || data.company.addresses[0] || null;
+//         }
+//         if (!data.company.pallet) {
+//             data.company.pallet = {
+//                 accentColor: "#fff"
+//             }
+//         }
 
-        data.title = data.title || "Novo email";
-        data.copyrightDate = moment().format('YYYY');
-        data.date = data.date || moment().format('DD/MM/YYYY HH:mm');
-        data.link = data.link || {};
-        const html = await Render.dot(emailFolder + '/' + file, data || {})
-        mail.html= await juice(html);
-          const result = await sendMail(mail, data.company.smtp)
-          console.log("MAIL SENT", mail);
-          return result;
-            // .then((response) => debug ? resolve({ response, mail }) : resolve(response))
-            // .catch((error) => console.error({ error }) || reject(error));
-    // })
-    }catch(e){
-        console.error("SEND MAIL ERROR", e);
-        throw e;
-    }
-}
+//         data.title = data.title || "Novo email";
+//         data.copyrightDate = moment().format('YYYY');
+//         data.date = data.date || moment().format('DD/MM/YYYY HH:mm');
+//         data.link = data.link || {};
+//         const html = await Render.dot(emailFolder + '/' + file, data || {})
+//         mail.html= await juice(html);
+//           const result = await sendMail(mail, data.company.smtp)
+//           console.log("MAIL SENT", mail);
+//           return result;
+//             // .then((response) => debug ? resolve({ response, mail }) : resolve(response))
+//             // .catch((error) => console.error({ error }) || reject(error));
+//     // })
+//     }catch(e){
+//         console.error("SEND MAIL ERROR", e);
+//         throw e;
+//     }
+// }
 
-const renderDebug = (mail, file, data) => {
-    return renderMail(mail, file, data, true);
-}
+// const renderDebug = (mail, file, data) => {
+//     return renderMail(mail, file, data, true);
+// }
 
-// exports.sendMail = sendMail;
+exports.sendMail = sendMail;
 // exports.renderMail = renderMail;
-// exports.verify = verify;
+exports.verify = verify;
 // exports.renderDebug = renderDebug;
-// module.exports = exports;
+module.exports = exports;
