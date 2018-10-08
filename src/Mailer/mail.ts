@@ -66,8 +66,10 @@ export const sendMail = (smtp,mail, callback) => {
     tmpSmtp = process.env.NODE_ENV === "development" ? smtp : tmpSmtp;
     const trasnport = mailer.createTransport(tmpSmtp);
      mail = {
+        ...mail,
         from: mail.from, // used as MAIL FROM: address for SMTP
         to: mail.to,
+        subject: mail.subject,
         attachments: mail.attachments,
         html: mail.html
     };
