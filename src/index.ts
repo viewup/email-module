@@ -1,3 +1,3 @@
-import  {sendMail} from  "./Mailer/mail";
+import * as Mail from  "./Mailer/mail";
 
-export default sendMail
+export default Mail
