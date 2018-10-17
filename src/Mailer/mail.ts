@@ -159,8 +159,8 @@ function verify(smtp) {
 //     return renderMail(mail, file, data, true);
 // }
 
-exports.sendMail = sendMail;
-// exports.renderMail = renderMail;
-exports.verify = verify;
-// exports.renderDebug = renderDebug;
-module.exports = exports;
+// exports.sendMail = sendMail;
+// // exports.renderMail = renderMail;
+// exports.verify = verify;
+// // exports.renderDebug = renderDebug;
+// module.exports = exports;
